@@ -16,7 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from kakeiboo_app.views import toppage_view
+from kakeiboo_app.views import dashboard_view
+from kakeiboo_app.views import input_view
+from kakeiboo_app.views import graph_view
+from kakeiboo_app.views import settings_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('toppage/', toppage_view, name='toppage'),
+    path('dashboard/', dashboard_view, name='dashboard'),
+    path('input/', input_view, name='input'),
+    path('graph/', graph_view, name='graph'),
+    path('settings/', settings_view, name='settings')
 ]

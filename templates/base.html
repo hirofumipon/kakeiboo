@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}家計簿アプリ / kakeiboo{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <header>
+    <h1>家計簿アプリ</h1>
+    <nav>
+      <a href="{% url 'dashboard' %}">ダッシュボード</a>
+      <a href="{% url 'input' %}">入力</a>
+      <a href="{% url 'graph' %}">グラフ</a>
+      <a href="{% url 'settings' %}">設定</a>
+    </nav>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    
+  </body>
+</html>
