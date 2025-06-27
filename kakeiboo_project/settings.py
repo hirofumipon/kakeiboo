@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kakeiboo_app.apps.KakeibooAppConfig'
+    'kakeiboo_app.apps.KakeibooAppConfig',
+    'tailwind',
+    'theme'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# TailwindCSS settings
+TAILWIND_APP_NAME = "theme"
+if DEBUG:
+    INTERNAL_IPS = [
+        "127.0.0.1",
+    ]
+
+
+NPM_BIN_PATH = "/usr/local/bin/npm"  

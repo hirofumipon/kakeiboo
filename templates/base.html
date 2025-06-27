@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 {% load static %}
+{% load static tailwind_tags %}
+
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
     <title>{% block title %}家計簿アプリ / kakeiboo{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% tailwind_css %}
   </head>
-  <body>
-    <header>
-    <h1>家計簿アプリ</h1>
-    <nav>
-      <a href="{% url 'dashboard' %}">ダッシュボード</a>
-      <a href="{% url 'input' %}">入力</a>
-      <a href="{% url 'graph' %}">グラフ</a>
-      <a href="{% url 'settings' %}">設定</a>
-    </nav>
+  <body class="bg-gray-100 text-gray-900">
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Kakeiboo</h1>
+        <nav class="space-x-4">
+          <a href="{% url 'dashboard' %}" class="text-blue-600 hover:underline">ダッシュボード</a>
+          <a href="{% url 'input' %}" class="text-blue-600 hover:underline">入力</a>
+          <a href="{% url 'graph' %}" class="text-blue-600 hover:underline">グラフ</a>
+          <a href="{% url 'settings' %}" class="text-blue-600 hover:underline">設定</a>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main class="container mx-auto px-4 py-6">
       {% block content %}{% endblock %}
     </main>
+
+    <footer class="bg-white border-t mt-12 text-sm text-center p-4 text-gray-500">
+      &copy; 2025 Kakeiboo Inc.
+    </footer>
+
     
   </body>
 </html>
